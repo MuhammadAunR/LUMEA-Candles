@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import React from 'react'
 import ProductCard from './UI/ProductCard';
+import { PrimaryButton } from './UI/Buttons';
 
 const ProductSectionHome = () => {
 
@@ -119,7 +120,14 @@ const ProductSectionHome = () => {
                     </div>
                 </div>
 
-
+                <motion.div
+                    initial={{ opacity: 0, scale: 0 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.90 }}
+                    viewport={{ once: true }}
+                    className='flex items-center justify-center pt-10'>
+                    <PrimaryButton text='See More' url={'/'} />
+                </motion.div>
             </section>
         </>
     )
