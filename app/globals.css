@@ -17,3 +17,8 @@
   --font-heading: var(--font-lora);
   --font-body: var(--font-dm-sans);
 }
+
+body,
+html {
+  font-family: var(--font-body);
+}
