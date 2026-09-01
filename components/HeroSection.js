@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 
 const HeroSection = () => {
     return (
-        <section className='grid grid-cols-1 lg:grid-cols-2 flex-col-reverse lg:gap-10'>
+        <section className='grid grid-cols-1 lg:grid-cols-2 flex-col-reverse lg:gap-10 bg-primary'>
 
             <div className='relative h-130 lg:h-[calc(100vh-100px)] max-lg:order-2'>
                 <Image
