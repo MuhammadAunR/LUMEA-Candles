@@ -5,11 +5,12 @@ import Link from 'next/link'
 import React from 'react'
 import Hamburger from './UI/Hamburger';
 import { navOptions } from '@/constants/NavbarConst';
+import Image from 'next/image';
 
 const Navbar = () => {
 
     return (
-        <nav className='px-5 lg:px-10 py-5 w-full h-25 bg-secondary grid grid-cols-[55%_45%] items-center fixed top-0'>
+        <nav className='px-5 lg:px-10 py-5 w-full h-35 bg-secondary grid grid-cols-[55%_45%] items-center fixed top-0 z-100 border-b border-accent'>
             <div className='flex items-center justify-between'>
                 <ul className='flex items-center justify-between gap-10 max-lg:hidden'>
                     {navOptions.map(option => {
@@ -26,7 +27,10 @@ const Navbar = () => {
                 <span className='lg:hidden'>
                     <Hamburger />
                 </span>
-                <Link href={'/'}>
+                <Link href={'/'} className='relative'>
+                    <div className='absolute left-1/2 -top-5 -translate-x-1/2 -translate-y-1/2 h-10 w-10'>
+                        <Image src={'/logo.webp'} alt='Logo' fill sizes='100px' className='w-full h-full'/>
+                    </div>
                     <h1 className='font-brand font-bold text-foreground tracking-widest text-4xl leading-none'>LUMÉA</h1>
                 </Link>
             </div>
