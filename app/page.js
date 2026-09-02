@@ -1,3 +1,4 @@
+import FragranceRoom from "@/components/FragranceRoom";
 import HeroSection from "@/components/HeroSection";
 import Navbar from "@/components/Navbar";
 import ProductSectionHome from "@/components/ProductSectionHome";
@@ -13,6 +14,7 @@ export default function Home() {
         <HeroSection />
         <ProductSectionHome />
         <WhyLumeaSection />
+        <FragranceRoom />
       </main>
     </>
   )
