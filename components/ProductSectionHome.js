@@ -77,13 +77,13 @@ const ProductSectionHome = () => {
                 </header>
 
                 {/* Product Section  */}
-                <div className='flex items-center justify-between flex-wrap w-10/12 mx-auto py-15'>
+                <div className='flex items-center justify-start gap-y-5 gap-x-10 flex-wrap w-10/12 mx-auto py-15'>
                     {products.map(product => {
                         return <ProductCard key={product.id} product={product} />
                     })}
                 </div>
 
-                <div className='relative h-100 w-10/12 mx-auto overflow-hidden'>
+                <div className='relative h-90 lg:h-100 mx-5 lg:w-10/12 lg:mx-auto overflow-hidden'>
                     <Image
                         src={'/produc-section.webp'}
                         alt='Hero'
