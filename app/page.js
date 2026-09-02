@@ -1,6 +1,7 @@
 import HeroSection from "@/components/HeroSection";
 import Navbar from "@/components/Navbar";
 import ProductSectionHome from "@/components/ProductSectionHome";
+import WhyLumeaSection from "@/components/WhyLumeaSection";
 
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
       <main>
         <HeroSection />
         <ProductSectionHome />
+        <WhyLumeaSection />
       </main>
     </>
   )
