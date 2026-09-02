@@ -63,7 +63,7 @@ const ProductSectionHome = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.90, delay: 0.2 }}
                         viewport={{ once: true }}
-                        className='uppercase font-heading font-bold text-5xl tracking-wide text-foreground'>
+                        className='uppercase font-heading font-bold text-4xl lg:text-5xl tracking-wide text-foreground text-center'>
                         Trending Now
                     </motion.h2>
                     <motion.span
@@ -77,7 +77,7 @@ const ProductSectionHome = () => {
                 </header>
 
                 {/* Product Section  */}
-                <div className='flex items-center justify-start gap-y-5 gap-x-10 flex-wrap w-10/12 mx-auto py-15'>
+                <div className='flex items-start justify-center gap-y-5 gap-x-10 flex-wrap w-10/12 mx-auto py-15'>
                     {products.map(product => {
                         return <ProductCard key={product.id} product={product} />
                     })}
