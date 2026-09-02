@@ -2,6 +2,7 @@ import { Bodoni_Moda, Lora, DM_Sans } from "next/font/google";
 import "./globals.css";
 import AppWrapper from "./context/AppWrapper";
 import NavSidebar from "@/components/NavSidebar";
+import LenisWrapper from "@/components/LenisWrapper";
 
 const bodoni = Bodoni_Moda({
   variable: "--font-bodoni",
@@ -34,10 +35,12 @@ export default function RootLayout({ children }) {
       className={`${bodoni.variable} ${lora.variable} ${dmSans.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <AppWrapper>
-          <NavSidebar />
-          {children}
-        </AppWrapper>
+        <LenisWrapper>
+          <AppWrapper>
+            <NavSidebar />
+            {children}
+          </AppWrapper>
+        </LenisWrapper>
       </body>
     </html>
   );
