@@ -1,13 +1,16 @@
 'use client'
 import React from 'react'
 import NavContext from './NavContext'
+import CartContext from './CartContext'
 
 const AppWrapper = ({ children }) => {
     return (
         <>
-            <NavContext>
-                {children}
-            </NavContext>
+            <CartContext>
+                <NavContext>
+                    {children}
+                </NavContext>
+            </CartContext>
         </>
     )
 }

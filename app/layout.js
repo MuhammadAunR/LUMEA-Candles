@@ -5,6 +5,7 @@ import NavSidebar from "@/components/NavDrawer";
 import LenisWrapper from "@/components/LenisWrapper";
 import ScrollToTop from "@/components/ScrollToTop";
 import Cart from "@/components/Cart";
+import SonnerToast from "@/components/SonnerToast";
 
 const bodoni = Bodoni_Moda({
   variable: "--font-bodoni",
@@ -39,10 +40,12 @@ export default function RootLayout({ children }) {
       <body className="min-h-full flex flex-col">
         <LenisWrapper>
           <AppWrapper>
-            <NavSidebar />
-            <Cart />
-            <ScrollToTop />
-            {children}
+            <SonnerToast>
+              <NavSidebar />
+              <Cart />
+              <ScrollToTop />
+              {children}
+            </SonnerToast>
           </AppWrapper>
         </LenisWrapper>
       </body>

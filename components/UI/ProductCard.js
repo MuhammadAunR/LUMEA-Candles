@@ -1,10 +1,14 @@
 'use client'
+import { useCart } from '@/app/context/CartContext'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import React from 'react'
 
 
 const ProductCard = ({ product }) => {
+
+    const { handleAddToCart } = useCart()
+
     return (
         <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -42,6 +46,7 @@ const ProductCard = ({ product }) => {
                 </div>
                 <span>
                     <motion.button
+                        onClick={() => handleAddToCart(product)}
                         whileTap={{ scale: 0.97 }}
                         className='uppercase border border-accent rounded-full w-full py-3 px-12 text-lg font-semibold tracking-wider cursor-pointer bg-primary hover:bg-secondary transition-all ease-linear duration-300'>
                         Add to Cart
