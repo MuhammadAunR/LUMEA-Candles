@@ -7,7 +7,7 @@ const WhatsappButton = () => {
     return (
         <motion.div
             whileTap={{ scale: 0.95 }}
-            className='fixed bottom-5 right-5 z-100 flex items-center group'
+            className='fixed bottom-5 right-5 z-50 flex items-center group'
         >
 
             <span className='overflow-hidden'>
