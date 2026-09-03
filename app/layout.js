@@ -1,8 +1,10 @@
 import { Bodoni_Moda, Lora, DM_Sans } from "next/font/google";
 import "./globals.css";
 import AppWrapper from "./context/AppWrapper";
-import NavSidebar from "@/components/NavSidebar";
+import NavSidebar from "@/components/NavDrawer";
 import LenisWrapper from "@/components/LenisWrapper";
+import ScrollToTop from "@/components/ScrollToTop";
+import Cart from "@/components/Cart";
 
 const bodoni = Bodoni_Moda({
   variable: "--font-bodoni",
@@ -38,6 +40,8 @@ export default function RootLayout({ children }) {
         <LenisWrapper>
           <AppWrapper>
             <NavSidebar />
+            <Cart />
+            <ScrollToTop />
             {children}
           </AppWrapper>
         </LenisWrapper>
