@@ -4,9 +4,11 @@ import { socialMedia } from '@/constants/FooterConst'
 import { navOptions } from '@/constants/NavbarConst'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { useState } from 'react'
 
 const Footer = () => {
+    const [whatsappJoiner, setWhatsappJoiner] = useState("")
+    const message = `Hi! ${whatsappJoiner} want to get updates on your products.`
 
     return (
         <>
@@ -64,12 +66,17 @@ const Footer = () => {
                         <form className='flex items-center border-b border-primary/40 pb-2'>
                             <input
                                 type="phone"
+                                value={whatsappJoiner}
+                                onChange={(e) => setWhatsappJoiner(e.target.value)}
                                 placeholder="0321 1234567"
                                 className='bg-transparent text-primary placeholder:text-primary/40 outline-none flex-1 text-sm'
                             />
-                            <button type="submit" className='text-primary uppercase text-xs hover:text-secondary hover:tracking-widest transition-all ease-linear duration-300'>
+                            <Link
+                                href={whatsappJoiner ? `https://wa.me/+923286536520?text=${encodeURIComponent(message)}` : ''}
+                                target='_blank'
+                                className='text-primary uppercase text-xs hover:text-secondary hover:tracking-widest transition-all ease-linear duration-300'>
                                 Whatsapp us
-                            </button>
+                            </Link>
                         </form>
                     </div>
                 </section>
