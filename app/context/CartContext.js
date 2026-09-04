@@ -19,7 +19,7 @@ const CartContext = ({ children }) => {
     }
 
     useEffect(() => {
-        const stored = localStorage.getItem("cartItems")
+        const stored = JSON.parse(localStorage.getItem("cartItems"))
         if (stored) {
             setCartItemsInLS(stored)
         }
@@ -41,17 +41,41 @@ const CartContext = ({ children }) => {
         } else {
             setCartItemsInLS([...cartItemsInLS, { ...product, qty: 1 }])
         }
-        toast.success('Toasts')
+        toast.success('Product Added to Cart')
     }
 
     const handleRemoveFromCart = (id) => {
         const updated = cartItemsInLS.filter(item => item.id !== id)
         setCartItemsInLS(updated)
+        toast.info('Product Removed from Cart')
     }
+
+    const handleIncreaseQty = (id) => {
+        const updated = cartItemsInLS.map(item =>
+            item.id === id ? { ...item, qty: item.qty + 1 } : item
+        )
+        setCartItemsInLS(updated)
+    }
+    const handleDecreaseQty = (id) => {
+        const prod = cartItemsInLS.find(item => item.id === id)
+        if (prod.qty === 1) {
+            handleRemoveFromCart(id)
+            return
+        }
+
+        const updated = cartItemsInLS.map(item =>
+            item.id === id ? { ...item, qty: item.qty - 1 } : item
+        )
+        setCartItemsInLS(updated)
+    }
+
+    const handleTotalCost = cartItemsInLS.reduce((accumulator, item) => {
+        return accumulator + (item.qty * item.price)
+    }, 0)
 
     return (
         <ContextProvider.Provider
-            value={{ isCartOpen, toggleCart, handleAddToCart, cartItemsInLS, handleRemoveFromCart }}
+            value={{ isCartOpen, toggleCart, handleAddToCart, cartItemsInLS, handleRemoveFromCart, handleIncreaseQty, handleDecreaseQty, handleTotalCost }}
         >
             {children}
         </ContextProvider.Provider>
