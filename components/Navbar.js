@@ -57,9 +57,11 @@ const Navbar = () => {
                             {cartItemsInLS.length > 9 ? '9+' : cartItemsInLS.length}
                         </span>
                     }
-                    <span className='text-sm'>
-                        {handleTotalCost.toLocaleString()}
-                    </span>
+                    {handleTotalCost > 0 &&
+                        <span className='text-sm'>
+                            {handleTotalCost.toLocaleString()}
+                        </span>
+                    }
                 </span>
             </div>
         </nav>
