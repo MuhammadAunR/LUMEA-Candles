@@ -6,11 +6,18 @@ import { Minus, Plus, ShoppingCart, Trash2, X } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
 import { PrimaryButton } from './UI/Buttons'
+import { motion } from 'framer-motion'
 
 const Cart = () => {
 
     const { isCartOpen, toggleCart, cartItemsInLS, handleRemoveFromCart, handleIncreaseQty, handleDecreaseQty, handleTotalCost } = useCart()
-    // console.log(typeof cartItemsInLS)
+
+    const message = `Hi, I'd like to order:
+    ${cartItemsInLS.map(item =>
+        `• ${item.name} (Qty: ${item.qty}) - Rs. ${item.price * item.qty}`
+    ).join('\n')}
+
+    Total: Rs. ${cartItemsInLS.reduce((sum, item) => sum + item.price * item.qty, 0)}`
     useBlockYScroll(isCartOpen)
 
     return (
@@ -30,7 +37,12 @@ const Cart = () => {
 
                 <section className='h-120 overscroll-y-auto'>
                     {cartItemsInLS.length === 0 ?
-                        <div className='flex flex-col items-center justify-center gap-5'>
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.90 }}
+                            viewport={{ once: false }}
+                            className='flex flex-col items-center justify-center gap-5'>
                             <span className='text-accent/50'>
                                 <ShoppingCart size={90} />
                             </span>
@@ -40,7 +52,7 @@ const Cart = () => {
                             <span onClick={toggleCart}>
                                 <PrimaryButton text='Go To Shop' />
                             </span>
-                        </div> :
+                        </motion.div> :
                         cartItemsInLS.map(item => {
                             return <div key={item.id} className='flex items-start justify-between py-2 px-3 border border-accent rounded-md m-1 hover:-translate-y-0.5 transition-all ease-linear duration-300 group'>
                                 <div className='flex items-start gap-3'>
@@ -102,7 +114,7 @@ const Cart = () => {
                             </span>
                         </div>
                         <span>
-                            <PrimaryButton text='Checkout' />
+                            <PrimaryButton text='Checkout' url={`https://wa.me/+923286536520?text=${encodeURIComponent(message)}`} />
                         </span>
                     </div>
                 }
