@@ -1,8 +1,8 @@
 const navOptions = [
     { label: "Home", href: "/" },
-    { label: "Shop", href: "/shop" },
-    { label: "About", href: "/about" },
-    { label: "Contact", href: "/contact" }
+    { label: "Shop", href: "/" },
+    { label: "About", href: "/" },
+    { label: "Contact", href: "/" }
 ];
 
 export { navOptions }
