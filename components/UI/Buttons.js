@@ -6,7 +6,7 @@ import Link from "next/link";
 const PrimaryButton = ({ text = "Discover the Collection", url }) => {
 
     return (
-        <Link href={url ? url : '/'}>
+        <Link href={url ? url : ''} target="_blank">
             <motion.button
                 whileTap={{ scale: 0.95 }}
                 className="group relative overflow-hidden px-10 py-4 border border-accent rounded-full text-foreground uppercase  max-md:text-sm text-lg lg:text-xl tracking-[0.2em] font-heading transition-all duration-500 ease-out hover:scale-101 bg-primary cursor-pointer">
